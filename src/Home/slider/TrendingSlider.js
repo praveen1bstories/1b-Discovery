@@ -13,7 +13,7 @@ export default function TrendingSlider() {
     const [activeIndex, setActiveIndex] = useState(0)
 
     const getData = () => {
-        fetch(`https://api.1bstories.com/stories/carousels/api/?id=63db9b58ac460cb6d4af2c0e&t=ead9b450a2ea11edaaff062ae197ed1cc42dd7fbd9f34adabe`)
+        fetch(`https://api.1bstories.com/stories/sync/?t=8r734410458967bdb59y7a70cb34e770780baa9afcfa4hy512`)
             .then((response) => response.json())
             .then((data) => {
                 setLoading(false)
@@ -40,7 +40,7 @@ export default function TrendingSlider() {
                 className="mySwiper"
             >
                 {trending.map((item,index) =>{
-                    return <SwiperSlide onClick={() =>{
+                    return <SwiperSlide id={index} onClick={() =>{
                         setOpen(true)
                         setActiveIndex(index)
                     }
@@ -53,6 +53,10 @@ export default function TrendingSlider() {
 
             {open ?  <div className="popup">
                 <div className="mask" style={{backgroundImage:`url(${data[activeIndex].squarePoster})`}}></div>
+                <div className="close" onClick={() =>{
+                    setOpen(false)
+                }
+                }></div>
                 <Swiper
                     initialSlide={activeIndex}
                     direction="vertical"

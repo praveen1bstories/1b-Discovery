@@ -18,25 +18,16 @@ const LandingPage = () => {
             >
                 <div className="main-page">
                     <div className="name-logo">
+                        <a href="https://www.1bstories.com/">
                         <img src={logo}/>
-                        <div className="header">1b Discovery</div>
-                    </div>
-                    <div className="search">
-                        <Search size="large" placeholder={"Search Stories"}/>
+                        </a>
                     </div>
                     <div>
-                        <Divider orientation="left">Trending Stories</Divider>
+                        <Divider orientation="center">Trending Stories</Divider>
                         <TrendingSlider />
                     </div>
                 </div>
             </Content>
-            <Footer
-                style={{
-                    textAlign: 'center',
-                }}
-            >
-                1bstories discover ©2023 Created by 1bstories
-            </Footer>
         </Layout>
     );
 };
